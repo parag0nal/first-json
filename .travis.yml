@@ -3,20 +3,20 @@ language: cpp
 compiler: gcc
 
 
-env:
-    global:
-    - secure: "AXm8E9ss019VEqpewW4CNoNQfjn25PegOVG0VL+hSLF8pSowJAdCI4cwYQSlmhz1b3qY6VU/l2UDL6R3Tk56UkrzeJNjdjt0MM8z/Eptg3xITsduVs3PlblKkl5dbFGswM9/Nw0jjchK6vCTZplC7WatL62uj3MU5WV6/2hM/zOzXVjqYwaMHJ005u2j8SgsSFK1il20nSfROZIYmDcr66mhrQIXaRMO/iMWtE5JJ0qacAVlbNR86BSBVe2b8UKWL8S36aMUcumFL6DNb0unxfu7ewDtPmvCCaXMeHtmlMzBbYKkeX1LIxDoqfqoU7nrtECBCJ+SHZM4pAT+a8wvKL9Mu2wmhJ0ZfhjNy9AhPWc54ep5mfYAPLCURMTzfOO4ZYTz3VCoibvxbdZjEIMrpGfBkwYmlBdksoJegFB5YDTUPVqhPAa9fNI1k/Q7LigbO2xUMOXUAEMd7UP4HrClOUuiErCEjx4pEuXbryRz3tHaMBC07C0MyVXZWJRnzbCKxle2XtdUcRe8QDyEJB5b/RStK5X1I7/wGGHv1g5Ta4/wUfOaIfcLdqKMa3/Bmj42OePSZEH9lLeWgqMo5pTCYvgCWrLPnAsfy06PMerI167VPHy+lVIxKQosUxx3C5SGYvZS0tI6KtxsHv4+q2r557A66/v7010ZAHq6oCHkmWo="
-
-before_install:
-    - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-
-addons:
-    coverity_scan:
-        project:
-        name: "parag0nal/first-json"
-        description: "Testing stuff"
-    notification_email: yuxuancai4@gmail.com
-    build_command: "make"
-
+#env:
+#    global:
+#    - secure: "AXm8E9ss019VEqpewW4CNoNQfjn25PegOVG0VL+hSLF8pSowJAdCI4cwYQSlmhz1b3qY6VU/l2UDL6R3Tk56UkrzeJNjdjt0MM8z/Eptg3xITsduVs3PlblKkl5dbFGswM9/Nw0jjchK6vCTZplC7WatL62uj3MU5WV6/2hM/zOzXVjqYwaMHJ005u2j8SgsSFK1il20nSfROZIYmDcr66mhrQIXaRMO/iMWtE5JJ0qacAVlbNR86BSBVe2b8UKWL8S36aMUcumFL6DNb0unxfu7ewDtPmvCCaXMeHtmlMzBbYKkeX1LIxDoqfqoU7nrtECBCJ+SHZM4pAT+a8wvKL9Mu2wmhJ0ZfhjNy9AhPWc54ep5mfYAPLCURMTzfOO4ZYTz3VCoibvxbdZjEIMrpGfBkwYmlBdksoJegFB5YDTUPVqhPAa9fNI1k/Q7LigbO2xUMOXUAEMd7UP4HrClOUuiErCEjx4pEuXbryRz3tHaMBC07C0MyVXZWJRnzbCKxle2XtdUcRe8QDyEJB5b/RStK5X1I7/wGGHv1g5Ta4/wUfOaIfcLdqKMa3/Bmj42OePSZEH9lLeWgqMo5pTCYvgCWrLPnAsfy06PMerI167VPHy+lVIxKQosUxx3C5SGYvZS0tI6KtxsHv4+q2r557A66/v7010ZAHq6oCHkmWo="
+#
+#before_install:
+#    - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+#
+#addons:
+#    coverity_scan:
+#        project:
+#        name: "parag0nal/first-json"
+#        description: "Testing stuff"
+#    notification_email: yuxuancai4@gmail.com
+#    build_command: "make"
+#
 script:
     - make
