@@ -2,20 +2,24 @@ language: cpp
 
 compiler: gcc
 
-env:
-    global:
-    - secure: "AXm8E9ss019VEqpewW4CNoNQfjn25PegOVG0VL+hSLF8pSowJAdCI4cwYQSlmhz1b3qY6VU/l2UDL6R3Tk56UkrzeJNjdjt0MM8z/Eptg3xITsduVs3PlblKkl5dbFGswM9/Nw0jjchK6vCTZplC7WatL62uj3MU5WV6/2hM/zOzXVjqYwaMHJ005u2j8SgsSFK1il20nSfROZIYmDcr66mhrQIXaRMO/iMWtE5JJ0qacAVlbNR86BSBVe2b8UKWL8S36aMUcumFL6DNb0unxfu7ewDtPmvCCaXMeHtmlMzBbYKkeX1LIxDoqfqoU7nrtECBCJ+SHZM4pAT+a8wvKL9Mu2wmhJ0ZfhjNy9AhPWc54ep5mfYAPLCURMTzfOO4ZYTz3VCoibvxbdZjEIMrpGfBkwYmlBdksoJegFB5YDTUPVqhPAa9fNI1k/Q7LigbO2xUMOXUAEMd7UP4HrClOUuiErCEjx4pEuXbryRz3tHaMBC07C0MyVXZWJRnzbCKxle2XtdUcRe8QDyEJB5b/RStK5X1I7/wGGHv1g5Ta4/wUfOaIfcLdqKMa3/Bmj42OePSZEH9lLeWgqMo5pTCYvgCWrLPnAsfy06PMerI167VPHy+lVIxKQosUxx3C5SGYvZS0tI6KtxsHv4+q2r557A66/v7010ZAHq6oCHkmWo="
-
-before_install:
-    - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-
-addons:
-    coverity_scan:
-        project:
-        name: "parag0nal/first-json"
-        description: "Testing stuff"
-    notification_email: yuxuancai4@gmail.com
-    build_command: "make"
-
 script:
     - make
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "QiqL4VDwf3+OLv6x1qqqdTJFrclf8IObxgh1N9+O9fB6R1BAla9ul93e5yufDyR3wcEtcQDymKGTa+oTK5Dw4v1XCLd83l6fd+ZzaFiOdFLGBO+cVySBE0/LKQ+Js5c85UqwbeqXodgUqEu1FjoJLq0H3EG9NqdH8/6rEvhQEkSckBGizQOGkc6NLFsRymstgNgFL/0+HfHvzwnsCmdBHlSag+8m93Yc5CCPqJoGakuS1jko4C7YuWQO6DZGnyBaUSXv52bWwqty5n+BkKbIFOApzUHzQPUnINyWj5LoPOflr1s+23euXM5LZHQw1YouUUlnn7+UKmgEqjF62dj4gdDTVd4aeoGEDpbrOS+H6GNRJK+jja2bqAMwyneEUsjTv/3Rqu+MOgcJMDH8PFsjdKVuVqYnAWBLf7Jo6mnTl3gH7UfpWfjdr2kz1cAmiVhutJLRHl6nugyLcchh5wsmb8vluKjhraQ9ndD5RY/bgo0TVekxyza/guOt21aROKtWJc6G54pWMd67ZkKI2KyDZwd1Dzi0tBZpQtb/mlNPqw7ToqLezY/QWv6EeBVqa3dFtIYEIUjrQqoUR4zXhpYAtAcjNFJL9Fau+vQtQlCf8TRhHeCjp+F7Ut6IrtZdw7DxEXEkGfQF02LkB5Sfb+qVX7GaboUBhg7yclM+jHeQx00="
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "parag0nal/first-json"
+      description: "<Your project description here>"
+    notification_email: yuxuancai4@gmail.com
+    build_command_prepend: ""
+    build_command: "make"
+    branch_pattern: coverity_scan
