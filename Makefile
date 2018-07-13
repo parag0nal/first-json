@@ -1,18 +1,9 @@
-CXX = g++
-
 .PHONY: all
-all: main clean
+all:
+	mkdir -p build;
+	cd build && cmake .. && make
 
-main: main.o
-	$(CXX) -o $@ $^
-
-main.o: main.cpp
-	$(CXX) -c $<
-
-.PHONY: clean cleanest
-
+.PHONY: clean
 clean:
-	rm -f *.o
+	rm -rf build
 
-cleanest: clean
-	rm -f main
