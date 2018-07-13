@@ -1,30 +1,39 @@
-
+# Common files that need to be ignored
 /build/
-/build-*/
 *.pyc
 *.swp
-*.actual
-*.actual-rewrite
-*.process-output
-*.rewrite
-/bin/
-/libs/
-/doc/doxyfile
-/dist/
-#/version
-#/include/json/version.h
 
-# MSVC project files:
-*.sln
-*.vcxproj
-*.filters
-*.user
-*.sdf
-*.opensdf
-*.suo
+# Standard Gitignore Stuff
 
-# MSVC build files:
-*.lib
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
 *.obj
-*.tlog/
-*.pdb
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
